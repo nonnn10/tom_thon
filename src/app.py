@@ -63,26 +63,37 @@ def classify(model):#分類結果を返す関数
     Y = df.loc[:, 'label'].values  #Yに真のクラスラベルを代入
     X_std = sc.transform(X)        #データの標準化（前処理）
     #print(X_std)
-    print("使用したオブジェクト",model)
-    print(Y)                       #真のクラスラベルの表示
+    #print("使用したオブジェクト",model)
+    #print(Y)                       #真のクラスラベルの表示
     y = model.predict(X_std)         #クラスラベルの予測
-    print(y)                       #予測したクラスラベルの表示
+    #print(y)                       #予測したクラスラベルの表示
     proba = model.predict_proba(X_std)  #クラスの予測確率
-    print(proba)                   #予測確率の表示
-    return y, proba                #戻り値として予測したラベル、確率を返す
+    #print(proba)#予測確率の表示
+    
+    return proba                #戻り値として予測したラベル、確率を返す
 
-print(classify(forest))
+#print(classify(forest))
 
 
 
-text = classify(lr)
+
+text = classify(forest)
 #print(text)
+
+day1 = text[0]
+day2 = text[1]
+day3 = text[2]
+day4 = text[3]
+day5 = text[4]
+day6 = text[5]
+#print(day1)
+#print(day2)
+
 
 @app.route('/')
 def home():
-    return render_template('index.html',text = text)
+    return render_template('index.html',day1 = day1, day2 = day2, day3 = day3, day4 = day4, day5 = day5,day6 = day6)
           
 
 if __name__ == "__main__":
     app.run(debug=True)
-
