@@ -58,7 +58,7 @@ sc = StandardScaler()                         #標準化のオブジェクト
 sc.fit(X1)                                    #全データを使用した標準化
 
 
-def classify(model):#分類結果を返す関数
+def classify(model,df):#分類結果を返す関数、引数1は使用したいモデル、引数2は予測したいデータ
     X = df.loc[:,['wind_speed','wave_height']].values  #Xに説明変数のwind_speedとwave_heightを代入
     Y = df.loc[:, 'label'].values  #Yに真のクラスラベルを代入
     X_std = sc.transform(X)        #データの標準化（前処理）
@@ -69,15 +69,39 @@ def classify(model):#分類結果を返す関数
     #print(y)                       #予測したクラスラベルの表示
     proba = model.predict_proba(X_std)  #クラスの予測確率
     #print(proba)#予測確率の表示
-    
+
     return proba                #戻り値として予測したラベル、確率を返す
 
-#print(classify(forest))
+#print(classify(forest,df))
 
 
+def Change_to_percentage(proba):   #欠航する確率を返す関数、引数1にはclassify(model,df)関数を入れる
+    ans = np.array([])             #numpy配列の作成
+    p = proba                      #引数を変数に代入
+    for i in range(len(p)):        #配列の数だけループ
+        proba1=p[i]                #ループ数の配列番号の値を変数に代入
+        for l in range(len(proba1)):    #配列の数だけループ
+            a = np.array(['{:.0%}'.format(proba1[l])])  #配列番号がループ数の箇所の数値をパーセント表記に変更しa変数に格納
+            if l != 0 :                                 #ループ数が0以外なら実行
+                ans = np.append(ans,a)                  #ans変数にa変数を格納
+    return ans
 
+print(Change_to_percentage(classify(forest,df)))
 
-text = classify(forest)
+"""
+arr = np.array([])
+arr = np.append(arr, np.array([1, 2, 3]))
+arr = np.append(arr, np.array([4, 5]))
+arr
+
+print(ans)
+arr = np.empty((0,3), int)
+arr = np.append(arr, np.array([[1, 2, 3]]), axis=0)
+arr = np.append(arr, np.array([[4, 5, 0]]), axis=0)
+arr
+"""
+
+text = Change_to_percentage(classify(forest,df))
 #print(text)
 
 day1 = text[0]
