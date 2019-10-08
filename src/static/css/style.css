@@ -1,0 +1,30 @@
+@charset 'utf-8';
+
+.title{
+  font-size: 200%;
+  width:1080px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.page{
+   /* background-color: #486d46;            背景色 */
+   background-image: url("s41.jpg");
+   background-size: cover;               /* 全画面 */
+   background-attachment: fixed;         /* 固定 */
+   background-position: center center;   /* 縦横中央 */
+   /* background: rgba( 255, 255, 255, 0.44 ); */
+}
+table th{
+  padding: 20px;
+}
+
+table td{
+  padding: 10px;
+}
+
+.container{
+  width:1080px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+}

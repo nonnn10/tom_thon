@@ -1,20 +1,60 @@
 <!doctype html>
-<html>
+<html lang="ja">
   <head>
-    <title>First app</title>
+    <meta charset="UFT-8">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <title>TOM_thon</title>
   </head>
   <body>
-
-    <p>明日の欠航確率{{day1}}</p>
-    <p>2日後の欠航確率{{day2}}</p>
-    <p>3日後の欠航確率{{day3}}</p>
-    <p>4日後欠航確率{{day4}}</p>
-    <p>5日後の欠航確率{{day5}}</p>
-    <p>6日後の欠航確率{{day6}}</p>
-    
-  <div>
-
-  </div>
+    <div class = 'page'>
+      
+      <div class = 'title'>
+        <h1>先島諸島の航路での欠航確率</h1>
+      </div>
+  
+      </div>
+      <div class = 'container'>
+  
+        <table border="1">
+          <tr bgcolor="#ffcc00">
+      <th>日付</th>
+      <th>今日の欠航確率</th>
+      <th>1日後の欠航確率</th>
+      <th>2日後の欠航確率</th>
+      <th>3日後の欠航確率</th>
+      <th>4日後の欠航確率</th>
+      <th>5日後の欠航確率</th>
+          </tr>
+          <tr bgcolor="#c3ffff">
+      <td>航路1</td>
+      <td>{{day1}}</td>
+      <td>{{day2}}</td>
+      <td>{{day3}}</td>
+      <td>{{day4}}</td>
+      <td>{{day5}}</td>
+      <td>{{day6}}</td>
+          </tr>
+          <tr bgcolor="#c3ffc0">
+      <td>航路2</td>
+      <td>{{day1}}</td>
+      <td>{{day2}}</td>
+      <td>{{day3}}</td>
+      <td>{{day4}}</td>
+      <td>{{day5}}</td>
+      <td>{{day6}}</td>
+          </tr>
+          <tr bgcolor="#FFF">
+            <td>解説</td>
+            <td colspan="7">hogehoge</td>
+          </tr>
+          <tr bgcolor="#FFF">
+      <td>更新日</td>
+      <td colspan="7">
+        2019/10/7 16:00更新
+      </td>      
+            </tr>
+         </table>
+      </div>
 
   </body>
 </html>
