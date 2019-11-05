@@ -117,7 +117,10 @@ day6 = text[5]
 @app.route('/')
 def home():
     return render_template('index.html',day1 = day1, day2 = day2, day3 = day3, day4 = day4, day5 = day5,day6 = day6)
-          
+        
+@app.route('/kaisetu')
+def kaisetu():
+    return render_template('index_2.html')
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0',port=8080,threaded=True)
