@@ -8,8 +8,13 @@ import numpy as np
 import pandas as pd
 from pathlib import Path
 from sklearn.preprocessing import StandardScaler
+from flask_pure import Pure
 
 app = Flask(__name__)
+app.config['PURECSS_RESPONSIVE_GRIDS'] = True
+app.config['PURECSS_USE_CDN'] = True
+app.config['PURECSS_USE_MINIFIED'] = True
+Pure(app)
 
 ######## Preparing the Classifier
 cur_dir = os.path.dirname(Path().resolve())  #現在のこのファイルの絶対パス？
@@ -114,13 +119,21 @@ day6 = text[5]
 #print(day2)
 
 
-@app.route('/')
+@app.route('/all')
 def home():
     return render_template('index.html',day1 = day1, day2 = day2, day3 = day3, day4 = day4, day5 = day5,day6 = day6)
         
 @app.route('/kaisetu')
 def kaisetu():
     return render_template('index_2.html')
+
+@app.route('/')
+def main():
+    return render_template('index_pure.html')
+
+@app.route('/taketomi')
+def taketomi():
+    return render_template('taketomi.html',day1 = day1, day2 = day2, day3 = day3, day4 = day4, day5 = day5,day6 = day6)
 
 if __name__ == "__main__":
     app.run(debug=True, host='0.0.0.0',port=8080,threaded=True)

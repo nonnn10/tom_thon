@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A layout example that shows off a responsive photo gallery.">
+  <title>石垣</title>
+  <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css" integrity="sha384-"
+    crossorigin="anonymous">
+
+  <!--[if lte IE 8]>
+        <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/grids-responsive-old-ie-min.css">
+    <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/grids-responsive-min.css">
+  <!--<![endif]-->
+
+
+  <!--[if lte IE 8]>
+            <link rel="stylesheet" href="css/layouts/gallery-old-ie.css">
+        <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="../static/css/taketomi.css">
+  <!--<![endif]-->
+</head>
+
+
+
+
+
+<section class="wrapper">
+  <!-- Row title -->
+  <main class="row title">
+    <ul>
+      <li>day</li>
+      <li>石垣発</li>
+      <li>竹富発</li>
+      <!-- <li>Max</li>
+      <li>Time</li> -->
+    </ul>
+  </main>
+  <!-- Row 1 - fadeIn -->
+  <!-- <section class="row-fadeOut-wrapper"> -->
+    <article class="row nfl">
+      <ul>
+          <li><a>10/1</a></li>
+        <li>{{day1}}</li>
+        <li>{{day1}}</li>
+        <!-- <li>48</li>
+        <li>2:00ET</li> -->
+      </ul>
+      <ul class="more-content">
+        <li>This 1665-player contest boasts a $300,000.00 prize pool and pays out the top 300 finishing positions. First
+          place wins $100,000.00. Good luck!</li>
+      </ul>
+    </article>
+  <!-- </section> -->
+  <!-- Row 2 - fadeOut -->
+  <!-- <section class="row-fadeOut-wrapper"> -->
+    <article class="row nfl">
+      <ul>
+        <li><a> 10/2 </a></a></li>
+        <li>{{day2}}</li>
+        <li>{{day2}}</li>
+        <!-- <li>100</li>
+        <li>3:00ET</li> -->
+      </ul>
+      <ul class="more-content">
+        <li>This 1665-player contest boasts a $300,000.00 prize pool and pays out the top 300 finishing positions. First
+          place wins $100,000.00. Good luck!</li>
+      </ul>
+    </article>
+  <!-- </section> -->
+  <!-- Row 3 -->
+  <article class="row nfl">
+    <ul>
+      <li><a>10/3</a></li>
+      <li>{{day3}}</li>
+      <li>{{day3}}</li>
+      <!-- <li>48</li>
+      <li>12:00ET</li> -->
+    </ul>
+    <ul class="more-content">
+      <li>This 1665-player contest boasts a $300,000.00 prize pool and pays out the top 300 finishing positions. First
+        place wins $100,000.00. Good luck!</li>
+    </ul>
+  </article>
+  <!-- Row 4 -->
+  <article class="row mlb">
+    <ul>
+      <li><a>10/4</a></li>
+      <li>{{day4}}</li>
+      <li>{{day4}}</li>
+      <!-- <li>10</li>
+      <li>1:00ET</li> -->
+    </ul>
+    <ul class="more-content">
+      <li>This 1665-player contest boasts a $300,000.00 prize pool and pays out the top 300 finishing positions. First
+        place wins $100,000.00. Good luck!</li>
+    </ul>
+  </article>
+  <!-- Row 5 -->
+  <article class="row mlb">
+    <ul>
+      <li><a>10/5</a></li>
+      <li>{{day5}}</li>
+      <li>{{day5}}</li>
+      <!-- <li>120</li>
+      <li>12:00ET</li> -->
+    </ul>
+    <ul class="more-content">
+      <li>This 1665-player contest boasts a $300,000.00 prize pool and pays out the top 300 finishing positions. First
+        place wins $100,000.00. Good luck!</li>
+    </ul>
+  </article>
+  <!-- Row 6 -->
+  <article class="row nhl">
+    <ul>
+      <li><a>10/6</a></li>
+      <li>{{day6}}</li>
+      <li>{{day6}}</li>
+      <!-- <li>48</li>
+      <li>12:00ET</li> -->
+    </ul>
+    <ul class="more-content">
+      <li>This 1665-player contest boasts a $300,000.00 prize pool and pays out the top 300 finishing positions. First
+        place wins $100,000.00. Good luck!</li>
+    </ul>
+  </article>
+  <!-- Row 7 -->
+  <article class="row nhl">
+    <ul>
+      <li><a>10/7</a></li>
+      <li>{{day7}}</li>
+      <li>{{day7}}</li>
+      <!-- <li>48</li>
+      <li>12:00ET</li> -->
+    </ul>
+    <ul class="more-content">
+      <li>This 1665-player contest boasts a $300,000.00 prize pool and pays out the top 300 finishing positions. First
+        place wins $100,000.00. Good luck!</li>
+    </ul>
+  </article>
+  <!-- Row 8 -->
+  <article class="row pga">
+    <ul>
+      <li><a>10/8</a></li>
+      <li>{{day8}}</li>
+      <li>{{day8}}</li>
+      <!-- <li>48</li>
+      <li>11:00ET</li> -->
+    </ul>
+    <ul class="more-content">
+      <li>This 1665-player contest boasts a $300,000.00 prize pool and pays out the top 300 finishing positions. First
+        place wins $100,000.00. Good luck!</li>
+    </ul>
+  </article>
+  <!-- Row 9 -->
+  <article class="row pga">
+    <ul>
+      <li><a>10/9</a></li>
+      <li>$50</li>
+      <li>12</li>
+      <!-- <li>48</li>
+      <li>11:00ET</li> -->
+    </ul>
+    <ul class="more-content">
+      <li>This 1665-player contest boasts a $300,000.00 prize pool and pays out the top 300 finishing positions. First
+        place wins $100,000.00. Good luck!</li>
+    </ul>
+  </article>
+  <!-- Row 10 -->
+  <article class="row pga">
+    <ul>
+      <li><a href="#">PGA</a></li>
+      <li>$50</li>
+      <li>12</li>
+      <!-- <li>48</li>
+      <li>11:00ET</li> -->
+    </ul>
+    <ul class="more-content">
+      <li>This 1665-player contest boasts a $300,000.00 prize pool and pays out the top 300 finishing positions. First
+        place wins $100,000.00. Good luck!</li>
+    </ul>
+  </article>
+  <!-- Row 11 -->
+  <article class="row mlb">
+    <ul>
+      <li><a href="#">MLB</a></li>
+      <li>$10</li>
+      <li>1</li>
+      <!-- <li>10</li>
+      <li>1:00ET</li> -->
+    </ul>
+    <ul class="more-content">
+      <li>This 1665-player contest boasts a $300,000.00 prize pool and pays out the top 300 finishing positions. First
+        place wins $100,000.00. Good luck!</li>
+    </ul>
+  </article>
+</section>
