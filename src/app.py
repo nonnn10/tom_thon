@@ -133,7 +133,12 @@ def main():
 
 @app.route('/taketomi')
 def taketomi():
-    return render_template('taketomi.html',day1 = day1, day2 = day2, day3 = day3, day4 = day4, day5 = day5,day6 = day6)
+    return render_template('taketomi.html', day1=day1, day2=day2, day3=day3, day4=day4, day5=day5, day6=day6)
+    
+
+@app.route('/hateruma')
+def hateruma():
+    return render_template('hateruma.html', day1=day1, day2=day2, day3=day3, day4=day4, day5=day5, day6=day6)
 
 if __name__ == "__main__":
     app.run(debug=True, host='0.0.0.0',port=8080,threaded=True)
