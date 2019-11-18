@@ -115,13 +115,18 @@ day3 = text[2]
 day4 = text[3]
 day5 = text[4]
 day6 = text[5]
+day7 = 'coming soon'
+day8 = 'coming soon'
+day9 = 'coming soon'
+day10 = 'coming soon'
 #print(day1)
 #print(day2)
 
 
 @app.route('/all')
 def home():
-    return render_template('index.html',day1 = day1, day2 = day2, day3 = day3, day4 = day4, day5 = day5,day6 = day6)
+    return render_template('index.html', day1=day1, day2=day2, day3=day3, day4=day4, day5=day5, day6=day6, day7=day7, day8=day8,
+    day9 = day9,day10 = day10)
         
 @app.route('/kaisetu')
 def kaisetu():
@@ -133,12 +138,14 @@ def main():
 
 @app.route('/taketomi')
 def taketomi():
-    return render_template('taketomi.html', day1=day1, day2=day2, day3=day3, day4=day4, day5=day5, day6=day6)
+    return render_template('taketomi.html', day1=day1, day2=day2, day3=day3, day4=day4, day5=day5, day6=day6, day7=day7, day8=day8,
+                           day9=day9, day10=day10)
     
 
 @app.route('/hateruma')
 def hateruma():
-    return render_template('hateruma.html', day1=day1, day2=day2, day3=day3, day4=day4, day5=day5, day6=day6)
+    return render_template('hateruma.html', day1=day1, day2=day2, day3=day3, day4=day4, day5=day5, day6=day6, day7=day7, day8=day8,
+                           day9=day9, day10=day10)
 
 if __name__ == "__main__":
     app.run(debug=True, host='0.0.0.0',port=8080,threaded=True)

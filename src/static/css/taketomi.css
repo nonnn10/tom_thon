@@ -64,12 +64,12 @@ body {
 /* lists */
 .row ul {
   margin: 0;
-  padding: 0;
+  padding: 0,10px;
 }
 
 .row ul li {
   margin: 0;
-  font-size: 16px;
+  font-size: 25px;
   font-weight: normal;
   list-style: none;
   display: inline-block;
@@ -88,16 +88,16 @@ body {
 }
 
 .title ul li {
-  padding: 15px 13px;
+  padding: 0 10px;
 }
 
 .row ul li {
-  padding: 5px 10px;
+  padding: 5px 5px;
 }
 
 /* rows */
 .row {
-  padding: 20px 0;
+  padding: 25px 5px;
   height: 30px;
   font-size: 0;
   position: relative;
