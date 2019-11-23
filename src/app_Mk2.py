@@ -13,8 +13,13 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.decomposition import PCA
 from sklearn.pipeline import make_pipeline
 import re
+from flask_pure import Pure
 
-#app = Flask(__name__)
+app = Flask(__name__)
+app.config['PURECSS_RESPONSIVE_GRIDS'] = True
+app.config['PURECSS_USE_CDN'] = True
+app.config['PURECSS_USE_MINIFIED'] = True
+Pure(app)
 
 def columndelet(df,cdl): #列名を削除をする関数
     for i in cdl:
@@ -198,31 +203,58 @@ for i in range(len(table_list)):
 
 #dbnameと確率の辞書型
 dic = dict(zip(LDB_list_name(table_list), ans)) 
-val = dic[LDB_list_name(table_list)[0]]#使い方
+val = dic[LDB_list_name(table_list)[30]]#使い方
+#print(dic[LDB_haterumajima_hateruma1[0]])
+#print(val)
 
-#---------------------------------紳之亮-----------------------------------
-"""
-text = Change_to_percentage(classify(model,df))
-#print(text)
+#hateruma_hateruma0 = dic[LDB_list_name(table_list)[0]]
 
-day1 = text[0]
-day2 = text[1]
-day3 = text[2]
-day4 = text[3]
-day5 = text[4]
-day6 = text[5]
-#print(day1)
-#print(day2)
-
-
-@app.route('/')
+@app.route('/all')
 def home():
-    return render_template('sakisima.html',day1 = day1, day2 = day2, day3 = day3, day4 = day4, day5 = day5,day6 = day6)
+    return render_template('index.html')
         
 @app.route('/kaisetu')
 def kaisetu():
     return render_template('index_2.html')
 
+@app.route('/')
+def main():
+    return render_template('index_pure.html')
+
+@app.route('/hatoma')
+def hatoma():
+    return render_template('hatoma.html', hatoma_day1=dic[LDB_list_name(table_list)[20]], hatoma_day2=dic[LDB_list_name(table_list)[21]], hatoma_day3=dic[LDB_list_name(table_list)[22]], hatoma_day4=dic[LDB_list_name(table_list)[23]], hatoma_day5=dic[LDB_list_name(table_list)[24]], hatoma_day6=dic[LDB_list_name(table_list)[25]], hatoma_day7=dic[LDB_list_name(table_list)[26]], hatoma_day8=dic[LDB_list_name(table_list)[27]], hatoma_day9=dic[LDB_list_name(table_list)[28]], hatoma_day10=dic[LDB_list_name(table_list)[29]], hatoma_isigaki1=dic[LDB_list_name(table_list)[30]], hatoma_isigaki2=dic[LDB_list_name(table_list)[31]], hatoma_isigaki3=dic[LDB_list_name(table_list)[32]], hatoma_isigaki4=dic[LDB_list_name(table_list)[33]], hatoma_isigaki5=dic[LDB_list_name(table_list)[34]], hatoma_isigaki6=dic[LDB_list_name(table_list)[35]], hatoma_isigaki7=dic[LDB_list_name(table_list)[36]], hatoma_isigaki8=dic[LDB_list_name(table_list)[37]], hatoma_isigaki9=dic[LDB_list_name(table_list)[38]], hatoma_isigaki10=dic[LDB_list_name(table_list)[39]])
+
+
+@app.route('/hateruma')
+def hateruma():
+    return render_template('hateruma.html', hateruma_day1=dic[LDB_list_name(table_list)[0]], hateruma_day2=dic[LDB_list_name(table_list)[1]], hateruma_day3=dic[LDB_list_name(table_list)[2]], hateruma_day4=dic[LDB_list_name(table_list)[3]], hateruma_day5=dic[LDB_list_name(table_list)[4]], hateruma_day6=dic[LDB_list_name(table_list)[5]], hateruma_day7=dic[LDB_list_name(table_list)[6]], hateruma_day8=dic[LDB_list_name(table_list)[7]], hateruma_day9=dic[LDB_list_name(table_list)[8]], hateruma_day10=dic[LDB_list_name(table_list)[9]], isigaki_day1=dic[LDB_list_name(table_list)[10]], isigaki_day2=dic[LDB_list_name(table_list)[11]], isigaki_day3=dic[LDB_list_name(table_list)[12]], isigaki_day4=dic[LDB_list_name(table_list)[13]], isigaki_day5=dic[LDB_list_name(table_list)[14]], isigaki_day6=dic[LDB_list_name(table_list)[15]], isigaki_day7=dic[LDB_list_name(table_list)[16]], isigaki_day8=dic[LDB_list_name(table_list)[17]], isigaki_day9=dic[LDB_list_name(table_list)[18]], isigaki_day10=dic[LDB_list_name(table_list)[19]])
+
+
+@app.route('/ohara')
+def ohara():
+    return render_template('ohara.html', ohara_isigaki1=dic[LDB_list_name(table_list)[40]], ohara_isigaki2=dic[LDB_list_name(table_list)[41]], ohara_isigaki3=dic[LDB_list_name(table_list)[42]], ohara_isigaki4=dic[LDB_list_name(table_list)[43]], ohara_isigaki5=dic[LDB_list_name(table_list)[24]], ohara_isigaki6=dic[LDB_list_name(table_list)[45]], ohara_isigaki7=dic[LDB_list_name(table_list)[46]], ohara_isigaki8=dic[LDB_list_name(table_list)[47]], ohara_isigaki9=dic[LDB_list_name(table_list)[48]], ohara_isigaki10=dic[LDB_list_name(table_list)[49]], ohara_day1=dic[LDB_list_name(table_list)[50]], ohara_day2=dic[LDB_list_name(table_list)[51]], ohara_day3=dic[LDB_list_name(table_list)[52]], ohara_day4=dic[LDB_list_name(table_list)[53]], ohara_day5=dic[LDB_list_name(table_list)[54]], ohara_day6=dic[LDB_list_name(table_list)[55]], ohara_day7=dic[LDB_list_name(table_list)[56]], ohara_day8=dic[LDB_list_name(table_list)[57]], ohara_day9=dic[LDB_list_name(table_list)[58]], ohara_day10=dic[LDB_list_name(table_list)[59]])
+
+
+@app.route('/uehara')
+def uehara():
+    return render_template('uehara.html', uehara_isigaki1=dic[LDB_list_name(table_list)[60]], uehara_isigaki2=dic[LDB_list_name(table_list)[61]], uehara_isigaki3=dic[LDB_list_name(table_list)[62]], uehara_isigaki4=dic[LDB_list_name(table_list)[63]], uehara_isigaki5=dic[LDB_list_name(table_list)[64]], uehara_isigaki6=dic[LDB_list_name(table_list)[65]], uehara_isigaki7=dic[LDB_list_name(table_list)[66]], uehara_isigaki8=dic[LDB_list_name(table_list)[67]], uehara_isigaki9=dic[LDB_list_name(table_list)[68]], uehara_isigaki10=dic[LDB_list_name(table_list)[69]], uehara_day1=dic[LDB_list_name(table_list)[70]], uehara_day2=dic[LDB_list_name(table_list)[71]], uehara_day3=dic[LDB_list_name(table_list)[72]], uehara_day4=dic[LDB_list_name(table_list)[73]], uehara_day5=dic[LDB_list_name(table_list)[74]], uehara_day6=dic[LDB_list_name(table_list)[75]], uehara_day7=dic[LDB_list_name(table_list)[76]], uehara_day8=dic[LDB_list_name(table_list)[77]], uehara_day9=dic[LDB_list_name(table_list)[78]], uehara_day10=dic[LDB_list_name(table_list)[79]])
+
+
+@app.route('/kohama')
+def kohama():
+    return render_template('kohama.html', kohama_isigaki1=dic[LDB_list_name(table_list)[80]], kohama_isigaki2=dic[LDB_list_name(table_list)[81]], kohama_isigaki3=dic[LDB_list_name(table_list)[82]], kohama_isigaki4=dic[LDB_list_name(table_list)[83]], kohama_isigaki5=dic[LDB_list_name(table_list)[84]], kohama_isigaki6=dic[LDB_list_name(table_list)[85]], kohama_isigaki7=dic[LDB_list_name(table_list)[86]], kohama_isigaki8=dic[LDB_list_name(table_list)[87]], kohama_isigaki9=dic[LDB_list_name(table_list)[88]], kohama_isigaki10=dic[LDB_list_name(table_list)[89]], kohama_day1=dic[LDB_list_name(table_list)[90]], kohama_day2=dic[LDB_list_name(table_list)[91]], kohama_day3=dic[LDB_list_name(table_list)[92]], kohama_day4=dic[LDB_list_name(table_list)[93]], kohama_day5=dic[LDB_list_name(table_list)[94]], kohama_day6=dic[LDB_list_name(table_list)[95]], kohama_day7=dic[LDB_list_name(table_list)[96]], kohama_day8=dic[LDB_list_name(table_list)[97]], kohama_day9=dic[LDB_list_name(table_list)[98]], kohama_day10=dic[LDB_list_name(table_list)[99]])
+
+
+@app.route('/kurosima')
+def kurosima():
+    return render_template('kurosima.html', kurosima_isigaki1=dic[LDB_list_name(table_list)[100]], kurosima_isigaki2=dic[LDB_list_name(table_list)[101]], kurosima_isigaki3=dic[LDB_list_name(table_list)[102]], kurosima_isigaki4=dic[LDB_list_name(table_list)[103]], kurosima_isigaki5=dic[LDB_list_name(table_list)[104]], kurosima_isigaki6=dic[LDB_list_name(table_list)[105]], kurosima_isigaki7=dic[LDB_list_name(table_list)[106]], kurosima_isigaki8=dic[LDB_list_name(table_list)[107]], kurosima_isigaki9=dic[LDB_list_name(table_list)[108]], kurosima_isigaki10=dic[LDB_list_name(table_list)[109]], kurosima_day1=dic[LDB_list_name(table_list)[110]], kurosima_day2=dic[LDB_list_name(table_list)[111]], kurosima_day3=dic[LDB_list_name(table_list)[112]], kurosima_day4=dic[LDB_list_name(table_list)[113]], kurosima_day5=dic[LDB_list_name(table_list)[114]], kurosima_day6=dic[LDB_list_name(table_list)[115]], kurosima_day7=dic[LDB_list_name(table_list)[116]], kurosima_day8=dic[LDB_list_name(table_list)[117]], kurosima_day9=dic[LDB_list_name(table_list)[118]], kurosima_day10=dic[LDB_list_name(table_list)[119]])
+
+
+@app.route('/taketomi')
+def taketomi():
+    return render_template('taketomi.html', taketomi_isigaki1=dic[LDB_list_name(table_list)[120]], taketomi_isigaki2=dic[LDB_list_name(table_list)[121]], taketomi_isigaki3=dic[LDB_list_name(table_list)[122]], taketomi_isigaki4=dic[LDB_list_name(table_list)[123]], taketomi_isigaki5=dic[LDB_list_name(table_list)[124]], taketomi_isigaki6=dic[LDB_list_name(table_list)[125]], taketomi_isigaki7=dic[LDB_list_name(table_list)[126]], taketomi_isigaki8=dic[LDB_list_name(table_list)[127]], taketomi_isigaki9=dic[LDB_list_name(table_list)[128]], taketomi_isigaki10=dic[LDB_list_name(table_list)[129]], taketomi_day1=dic[LDB_list_name(table_list)[130]], taketomi_day2=dic[LDB_list_name(table_list)[131]], taketomi_day3=dic[LDB_list_name(table_list)[132]], taketomi_day4=dic[LDB_list_name(table_list)[133]], taketomi_day5=dic[LDB_list_name(table_list)[134]], taketomi_day6=dic[LDB_list_name(table_list)[135]], taketomi_day7=dic[LDB_list_name(table_list)[136]], taketomi_day8=dic[LDB_list_name(table_list)[137]], taketomi_day9=dic[LDB_list_name(table_list)[138]], taketomi_day10=dic[LDB_list_name(table_list)[139]])
+
 if __name__ == "__main__":
-    app.run(debug=True, host='0.0.0.0',port=80,threaded=True)
-"""
+    app.run(debug=True, host='0.0.0.0',port=8080,threaded=True)
+
