@@ -218,7 +218,7 @@ val = dic[LDB_list_name(table_list)[30]]#使い方
 #print(val)
 
 #hateruma_hateruma0 = dic[LDB_list_name(table_list)[0]]
-
+#更新
 @app.route('/all')
 def home():
     return render_template('index.html')
