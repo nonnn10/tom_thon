@@ -45,7 +45,7 @@ def df_table(dest,dbname):#db内のtable名取得 引数(ファイルへのパ�
 table_list=df_table(dest,'learningData.db')
         
 cdl=['Date','Time','Date0','Date1','Date2','Date3','Date4','Date5','Date6','Date7','Date8','Date9']#消したいカラム名
-print(table_list[1])
+#rint(table_list[1])
 #-----------------140個のモデル学習-------------------------------------
 dest = 'databases2'
 
@@ -211,9 +211,10 @@ for i in range(10):
 
 
 
+
 #dbnameと確率の辞書型
 dic = dict(zip(LDB_list_name(table_list), ans)) 
-val = dic[LDB_list_name(table_list)[30]]#使い方
+val = (dic[LDB_haterumajima_hateruma1[0]])  # 使い方
 #print(dic[LDB_haterumajima_hateruma1[0]])
 #print(val)
 
@@ -238,6 +239,7 @@ def hatoma():
 
 @app.route('/hateruma')
 def hateruma():
+
     return render_template('hateruma.html', hateruma_day1=dic[LDB_list_name(table_list)[0]], hateruma_day2=dic[LDB_list_name(table_list)[1]], hateruma_day3=dic[LDB_list_name(table_list)[2]], hateruma_day4=dic[LDB_list_name(table_list)[3]], hateruma_day5=dic[LDB_list_name(table_list)[4]], hateruma_day6=dic[LDB_list_name(table_list)[5]], hateruma_day7=dic[LDB_list_name(table_list)[6]], hateruma_day8=dic[LDB_list_name(table_list)[7]], hateruma_day9=dic[LDB_list_name(table_list)[8]], hateruma_day10=dic[LDB_list_name(table_list)[9]], isigaki_day1=dic[LDB_list_name(table_list)[10]], isigaki_day2=dic[LDB_list_name(table_list)[11]], isigaki_day3=dic[LDB_list_name(table_list)[12]], isigaki_day4=dic[LDB_list_name(table_list)[13]], isigaki_day5=dic[LDB_list_name(table_list)[14]], isigaki_day6=dic[LDB_list_name(table_list)[15]], isigaki_day7=dic[LDB_list_name(table_list)[16]], isigaki_day8=dic[LDB_list_name(table_list)[17]], isigaki_day9=dic[LDB_list_name(table_list)[18]], isigaki_day10=dic[LDB_list_name(table_list)[19]], li_day1=li_day[0], li_day2=li_day[1], li_day3=li_day[2], li_day4=li_day[3], li_day5=li_day[4], li_day6=li_day[5], li_day7=li_day[6], li_day8=li_day[7], li_day9=li_day[8], li_day10=li_day[9])
 
 
