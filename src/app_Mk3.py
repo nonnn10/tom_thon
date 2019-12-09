@@ -26,6 +26,7 @@ import xgboost as xgb
 from sklearn.metrics import precision_score, recall_score, f1_score
 import decimal
 import sys
+from decimal import Decimal, ROUND_HALF_UP, ROUND_HALF_EVEN
 
 app = Flask(__name__)
 app.config['PURECSS_RESPONSIVE_GRIDS'] = True
@@ -285,7 +286,8 @@ predict_table_list = ["hateruma","hatoma","ohara","uehara","kohama","kurosima","
 proba_list=[] #webサイトに表示する確率
 ans = np.array([]) 
 count=0
-dif_list=[]
+dif_list = []
+a1 = []
 for i in range(len(table_list)):
     df = pd.read_sql("SELECT * FROM '%s'" % table_list[i], conn)
     df = columndelet(df, cdl)
@@ -343,7 +345,7 @@ for i in range(len(table_list)):
     result_sum=0
     count=0
     twofivepar=0
-
+    
     print("index番号、予想ラベル、正解ラベル、予確率、正確率、予-正")
     for train_index, test_index in loo.split(X):
         X_train, X_test = X[train_index], X[test_index]
@@ -360,15 +362,28 @@ for i in range(len(table_list)):
         #print(test_index,pred,y[test_index],round(pred_proba[0,1],2),round(canseled_rate[df_proba.iloc[int(test_index),0]],2),round(result,2))
     if count == 0:
         dif_list.append(0)
+    # else:
+    #     dif_list.append(twofivepar / count)
     else:
-        dif_list.append(twofivepar / count)
+        a1 = twofivepar / count
+        a1 = np.round(a1, decimals=2)
+        a1 = int(a1 * 100)
+        dif_list.append(a1)
+
+    print(dif_list)
+
+    # a1 = np.round(dif_list, decimals=2)
+    # print(a1)
+
+
 
 #dbnameと確率の辞書型
 dic = dict(zip(LDB_list_name(table_list), ans))          #確率の辞書型
-dic_dif = dict(zip(LDB_list_name(table_list), dif_list)) #誤差の辞書型
+dic_dif = dict(zip(LDB_list_name(table_list), dif_list))  #誤差の辞書型
+print(dic_dif)
 #print(dic_dif)
 
-
+#日付を追加するコート、コード実行時の日付を取得して配列に格納してるよ
 li_day = []
 now = datetime.date.today()
 for i in range(10):
